@@ -40,4 +40,8 @@ function reverse4(str) {
     return reversed;
 }
 
-module.exports = reverse4;
+function reverse5(str) {
+    return str.split('').reduce((rev, char) => char + rev, '');
+}
+
+module.exports = reverse5;
