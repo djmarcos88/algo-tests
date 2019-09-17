@@ -38,11 +38,7 @@ function reverseInt2(n) {
         }
     }
 
-    if (Math.sign(n) < 0) {
-        return Number(reversed) * -1;
-    }
-
-    return Number(reversed);
+    return Number(reversed) * Math.sign(n);
 }
 
 module.exports = reverseInt2;
