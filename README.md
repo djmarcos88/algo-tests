@@ -1,3 +1,3 @@
-# AlgoCasts
+# algo-tests
 
-Companion repo to a course on Udemy.com
+Algorithms and data structures excercises.
