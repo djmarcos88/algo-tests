@@ -28,4 +28,21 @@ function reverseInt(n) {
     return new Number(reversed);
 }
 
-module.exports = reverseInt;
+function reverseInt2(n) {
+    let arr = Array.from(n.toString());
+    let reversed = '';
+
+    for (let char of arr) {
+        if (char !== '-') {
+            reversed = `${char}${reversed}`;
+        }
+    }
+
+    if (n < 0) {
+        reversed = `-${reversed}`;
+    }
+
+    return new Number(reversed);
+}
+
+module.exports = reverseInt2;
