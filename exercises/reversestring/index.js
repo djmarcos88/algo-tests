@@ -23,4 +23,21 @@ function reverse2(str) {
     return arr.reverse().join('');
 }
 
-module.exports = reverse2;
+function reverse3(str) {
+    return str
+        .split('')
+        .reverse()
+        .join('');
+}
+
+function reverse4(str) {
+    let reversed = '';
+
+    for (let char of str) {
+        reversed = char + reversed;
+    }
+
+    return reversed;
+}
+
+module.exports = reverse4;
