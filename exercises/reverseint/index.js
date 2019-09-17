@@ -38,11 +38,11 @@ function reverseInt2(n) {
         }
     }
 
-    if (n < 0) {
-        reversed = `-${reversed}`;
+    if (Math.sign(n) < 0) {
+        return Number(reversed) * -1;
     }
 
-    return new Number(reversed);
+    return Number(reversed);
 }
 
 module.exports = reverseInt2;
