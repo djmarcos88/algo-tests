@@ -19,6 +19,12 @@ function anagrams(stringA, stringB) {
     }
 }
 
+function sortSolution(stringA, stringB) {
+    return cleanString(stringA) === cleanString(stringB);
+}
+
+module.exports = anagrams;
+
 function comparer(mapLonger, mapShorter) {
     for (let i of mapLonger) {
         let found = mapShorter.get(i[0]);
@@ -44,6 +50,11 @@ function getCharMap(str) {
     return map;
 }
 
-module.exports = anagrams;
-
-console.log(anagrams('One one', 'c One one'));
+function cleanString(str) {
+    return str
+        .replace(/[^\w]/g, '')
+        .toLowerCase()
+        .split('')
+        .sort()
+        .join('');
+}
