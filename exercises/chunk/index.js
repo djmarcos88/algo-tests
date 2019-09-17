@@ -18,4 +18,15 @@ function chunk(array, size) {
     return chunks;
 }
 
-module.exports = chunk;
+function immutableChunk(array, size) {
+    let chunks = [];
+    let mutable = [...array];
+
+    while (mutable.length > 0) {
+        chunks.push(mutable.splice(0, size));
+    }
+
+    return chunks;
+}
+
+module.exports = immutableChunk;
