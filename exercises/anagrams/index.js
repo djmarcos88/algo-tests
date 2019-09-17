@@ -8,6 +8,42 @@
 //   anagrams('RAIL! SAFETY!', 'fairy tales') --> True
 //   anagrams('Hi there', 'Bye there') --> False
 
-function anagrams(stringA, stringB) {}
+function anagrams(stringA, stringB) {
+    let mapA = getCharMap(stringA);
+    let mapB = getCharMap(stringB);
+
+    if (mapA.size > mapB.size) {
+        return comparer(mapA, mapB);
+    } else {
+        return comparer(mapB, mapA);
+    }
+}
+
+function comparer(mapLonger, mapShorter) {
+    for (let i of mapLonger) {
+        let found = mapShorter.get(i[0]);
+
+        if (!found || found !== i[1]) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+function getCharMap(str) {
+    let plain = str.replace(/[^\w]/g, '').toLowerCase();
+    let map = new Map();
+
+    for (let char of plain) {
+        const val = map.get(char) || 0;
+
+        map.set(char, val + 1);
+    }
+
+    return map;
+}
 
 module.exports = anagrams;
+
+console.log(anagrams('One one', 'c One one'));
