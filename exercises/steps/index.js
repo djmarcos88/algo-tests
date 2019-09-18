@@ -17,11 +17,7 @@
 //       '### '
 //       '####'
 
-function steps(n) {
-    recursiveStep(1, n);
-}
-
-function recursiveStep(row, max) {
+function steps(max, row = 1) {
     if (row > max) {
         return;
     }
@@ -38,7 +34,7 @@ function recursiveStep(row, max) {
     console.log(str);
 
     row++;
-    recursiveStep(row, max);
+    steps(max, row);
 }
 
 module.exports = steps;
