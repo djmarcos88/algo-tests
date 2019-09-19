@@ -14,6 +14,35 @@
 //       ' ### '
 //       '#####'
 
-function pyramid(n) {}
+function pyramid(n, row = 0) {
+    if (row === n) {
+        return;
+    }
+
+    const maxCols = n + (n - 1);
+    const currentSymbols = 1 + 2 * row;
+
+    let spaces = '';
+    for (i = 0; i < maxCols; i++) {
+        spaces += ' ';
+    }
+
+    let symbols = '';
+    for (i = 0; i < currentSymbols; i++) {
+        symbols += '#';
+    }
+
+    const middle = maxCols / 2;
+    let currentStart = middle - row;
+
+    let arr = [...spaces];
+    arr.splice(currentStart, currentSymbols, ...symbols);
+
+    console.log(arr.join(''));
+    row++;
+    pyramid(n, row);
+}
 
 module.exports = pyramid;
+
+pyramid(7);
